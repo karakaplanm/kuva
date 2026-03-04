@@ -1,11 +1,11 @@
-use std::sync::Arc;
-use crate::render::render_utils;
-use crate::render::plots::Plot;
-use crate::render::annotations::{TextAnnotation, ReferenceLine, ShadedRegion};
-use crate::render::theme::Theme;
-use crate::render::palette::Palette;
 use crate::plot::legend::LegendPosition;
+use crate::render::annotations::{ReferenceLine, ShadedRegion, TextAnnotation};
 use crate::render::datetime::DateTimeAxis;
+use crate::render::palette::Palette;
+use crate::render::plots::Plot;
+use crate::render::render_utils;
+use crate::render::theme::Theme;
+use std::sync::Arc;
 
 /// Controls how tick labels are formatted on an axis.
 pub enum TickFormat {
@@ -26,11 +26,11 @@ pub enum TickFormat {
 impl Clone for TickFormat {
     fn clone(&self) -> Self {
         match self {
-            Self::Auto      => Self::Auto,
-            Self::Fixed(n)  => Self::Fixed(*n),
-            Self::Integer   => Self::Integer,
-            Self::Sci       => Self::Sci,
-            Self::Percent   => Self::Percent,
+            Self::Auto => Self::Auto,
+            Self::Fixed(n) => Self::Fixed(*n),
+            Self::Integer => Self::Integer,
+            Self::Sci => Self::Sci,
+            Self::Percent => Self::Percent,
             Self::Custom(f) => Self::Custom(Arc::clone(f)),
         }
     }
@@ -39,11 +39,11 @@ impl Clone for TickFormat {
 impl TickFormat {
     pub fn format(&self, v: f64) -> String {
         match self {
-            Self::Auto      => tick_format_auto(v),
-            Self::Fixed(n)  => format!("{:.*}", n, v),
-            Self::Integer   => format!("{:.0}", v),
-            Self::Sci       => tick_format_sci(v),
-            Self::Percent   => format!("{:.1}%", v * 100.0),
+            Self::Auto => tick_format_auto(v),
+            Self::Fixed(n) => format!("{:.*}", n, v),
+            Self::Integer => format!("{:.0}", v),
+            Self::Sci => tick_format_sci(v),
+            Self::Percent => format!("{:.1}%", v * 100.0),
             Self::Custom(f) => f(v),
         }
     }
@@ -242,12 +242,20 @@ impl Layout {
             }
 
             if let Plot::Box(bp) = plot {
-                let labels = bp.groups.iter().map(|g| g.label.clone()).collect::<Vec<_>>();
+                let labels = bp
+                    .groups
+                    .iter()
+                    .map(|g| g.label.clone())
+                    .collect::<Vec<_>>();
                 x_labels = Some(labels);
             }
 
             if let Plot::Violin(vp) = plot {
-                let labels = vp.groups.iter().map(|g| g.label.clone()).collect::<Vec<_>>();
+                let labels = vp
+                    .groups
+                    .iter()
+                    .map(|g| g.label.clone())
+                    .collect::<Vec<_>>();
                 x_labels = Some(labels);
             }
 
@@ -257,7 +265,11 @@ impl Layout {
             }
 
             if let Plot::Bar(bp) = plot {
-                let labels = bp.groups.iter().map(|g| g.label.clone()).collect::<Vec<_>>();
+                let labels = bp
+                    .groups
+                    .iter()
+                    .map(|g| g.label.clone())
+                    .collect::<Vec<_>>();
                 x_labels = Some(labels);
                 if let Some(ref ll) = bp.legend_label {
                     has_legend = true;
@@ -476,7 +488,9 @@ impl Layout {
         let has_dot_stacked = plots.iter().any(|p| {
             if let Plot::DotPlot(dp) = p {
                 dp.size_label.is_some() && dp.color_legend_label.is_some()
-            } else { false }
+            } else {
+                false
+            }
         });
 
         if has_legend {
@@ -526,16 +540,22 @@ impl Layout {
         // with a shared range), store it so the axis code can generate ticks
         // that fall exactly on bar edges.
         if any_hist {
-            let bin_widths: Vec<f64> = plots.iter().filter_map(|p| {
-                if let Plot::Histogram(h) = p {
-                    h.range.map(|r| (r.1 - r.0) / h.bins as f64)
-                } else {
-                    None
-                }
-            }).collect();
+            let bin_widths: Vec<f64> = plots
+                .iter()
+                .filter_map(|p| {
+                    if let Plot::Histogram(h) = p {
+                        h.range.map(|r| (r.1 - r.0) / h.bins as f64)
+                    } else {
+                        None
+                    }
+                })
+                .collect();
             if !bin_widths.is_empty() {
                 let first = bin_widths[0];
-                if bin_widths.iter().all(|&bw| (bw - first).abs() < 1e-9 * first.abs().max(1e-10)) {
+                if bin_widths
+                    .iter()
+                    .all(|&bw| (bw - first).abs() < 1e-9 * first.abs().max(1e-10))
+                {
                     layout.x_bin_width = Some(first);
                 }
             }
@@ -543,7 +563,6 @@ impl Layout {
 
         layout
     }
-
 
     pub fn with_x_categories(mut self, labels: Vec<String>) -> Self {
         self.x_categories = Some(labels);
@@ -781,7 +800,6 @@ impl Layout {
     }
 }
 
-
 #[derive(Clone)]
 pub struct ComputedLayout {
     pub width: f64,
@@ -840,7 +858,9 @@ impl ComputedLayout {
         } else if let Some(angle) = layout.x_tick_rotate {
             // Rotated labels extend below their anchor point by label_px * sin(|angle|).
             let char_w = tick_size * 0.6;
-            let max_chars = layout.x_categories.as_ref()
+            let max_chars = layout
+                .x_categories
+                .as_ref()
                 .and_then(|cats| cats.iter().map(|s| s.len()).max())
                 .unwrap_or(10) as f64;
             let label_px = max_chars * char_w;
@@ -857,11 +877,13 @@ impl ComputedLayout {
             10.0
         } else {
             let char_w = tick_size * 0.6;
-            let max_y_chars = layout.y_categories.as_ref()
+            let max_y_chars = layout
+                .y_categories
+                .as_ref()
                 .and_then(|cats| cats.iter().map(|s| s.len()).max())
-                .unwrap_or(6) as f64; // 6 chars covers typical numeric labels like "1000.0"
-            let tick_label_px = (max_y_chars * char_w).max(tick_size * 3.0);
-            label_size + tick_label_px + 15.0
+                .unwrap_or(4) as f64; // 4 chars covers typical numeric labels like "10.0"
+            let tick_label_px = (max_y_chars * char_w).max(tick_size * 2.0);
+            label_size + tick_label_px + 8.0
         };
         let mut margin_right = label_size;
 
@@ -880,11 +902,23 @@ impl ComputedLayout {
         let plot_width = 600.0;
         let plot_height = 450.0;
 
-        let width = layout.width.unwrap_or(margin_left + plot_width + margin_right);
-        let height = layout.height.unwrap_or(margin_top + plot_height + margin_bottom);
+        let width = layout
+            .width
+            .unwrap_or(margin_left + plot_width + margin_right);
+        let height = layout
+            .height
+            .unwrap_or(margin_top + plot_height + margin_bottom);
 
-        let x_ticks = if layout.ticks > 0 { layout.ticks } else { render_utils::auto_tick_count(width) };
-        let y_ticks = if layout.ticks > 0 { layout.ticks } else { render_utils::auto_tick_count(height) };
+        let x_ticks = if layout.ticks > 0 {
+            layout.ticks
+        } else {
+            render_utils::auto_tick_count(width)
+        };
+        let y_ticks = if layout.ticks > 0 {
+            layout.ticks
+        } else {
+            render_utils::auto_tick_count(height)
+        };
 
         // For log scale, prefer the raw data range (before proportional padding).
         // For clamp_axis, also use the raw range so the boundary lands on the
@@ -952,7 +986,10 @@ impl ComputedLayout {
             legend_width: layout.legend_width,
             log_x: layout.log_x,
             log_y: layout.log_y,
-            font_family: layout.font_family.clone().or(layout.theme.font_family.clone()),
+            font_family: layout
+                .font_family
+                .clone()
+                .or(layout.theme.font_family.clone()),
             title_size: layout.title_size,
             label_size: layout.label_size,
             tick_size: layout.tick_size,
@@ -984,7 +1021,8 @@ impl ComputedLayout {
             let log_max = self.x_range.1.log10();
             self.margin_left + (x.log10() - log_min) / (log_max - log_min) * self.plot_width()
         } else {
-            self.margin_left + (x - self.x_range.0) / (self.x_range.1 - self.x_range.0) * self.plot_width()
+            self.margin_left
+                + (x - self.x_range.0) / (self.x_range.1 - self.x_range.0) * self.plot_width()
         }
     }
 
@@ -993,9 +1031,13 @@ impl ComputedLayout {
             let y = y.max(1e-10);
             let log_min = self.y_range.0.log10();
             let log_max = self.y_range.1.log10();
-            self.height - self.margin_bottom - (y.log10() - log_min) / (log_max - log_min) * self.plot_height()
+            self.height
+                - self.margin_bottom
+                - (y.log10() - log_min) / (log_max - log_min) * self.plot_height()
         } else {
-            self.height - self.margin_bottom - (y - self.y_range.0) / (self.y_range.1 - self.y_range.0) * self.plot_height()
+            self.height
+                - self.margin_bottom
+                - (y - self.y_range.0) / (self.y_range.1 - self.y_range.0) * self.plot_height()
         }
     }
 
@@ -1005,10 +1047,12 @@ impl ComputedLayout {
                 let y = y.max(1e-10);
                 let log_min = y2_min.log10();
                 let log_max = y2_max.log10();
-                self.height - self.margin_bottom
+                self.height
+                    - self.margin_bottom
                     - (y.log10() - log_min) / (log_max - log_min) * self.plot_height()
             } else {
-                self.height - self.margin_bottom
+                self.height
+                    - self.margin_bottom
                     - (y - y2_min) / (y2_max - y2_min) * self.plot_height()
             }
         } else {
@@ -1028,4 +1072,3 @@ impl ComputedLayout {
         c
     }
 }
-

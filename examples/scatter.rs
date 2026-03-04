@@ -56,7 +56,10 @@ fn basic() {
     let layout = Layout::auto_from_plots(&plots)
         .with_title("Scatter Plot")
         .with_x_label(XLABEL)
-        .with_y_label(YLABEL);
+        .with_y_label(YLABEL)
+        .with_tick_size(18)
+        .with_label_size(18)
+        .with_title_size(18);
 
     let svg = SvgBackend.render_scene(&render_multiple(plots, layout));
     std::fs::write(format!("{OUT}/basic.svg"), svg).unwrap();
@@ -83,6 +86,7 @@ fn trend() {
         .with_size(5.0)
         .with_trend(TrendLine::Linear)
         .with_trend_color("crimson")
+        .with_trend_width(2.0)
         .with_equation()
         .with_correlation();
 
@@ -90,7 +94,11 @@ fn trend() {
     let layout = Layout::auto_from_plots(&plots)
         .with_title("Linear Trend Line")
         .with_x_label(XLABEL)
-        .with_y_label(YLABEL);
+        .with_y_label(YLABEL)
+        .with_tick_size(18)
+        .with_label_size(18)
+        .with_title_size(18)
+        .with_body_size(16);
 
     let svg = SvgBackend.render_scene(&render_multiple(plots, layout));
     std::fs::write(format!("{OUT}/trend.svg"), svg).unwrap();
@@ -115,7 +123,10 @@ fn confidence_band() {
     let layout = Layout::auto_from_plots(&plots)
         .with_title("Confidence Band")
         .with_x_label(XLABEL)
-        .with_y_label(YLABEL);
+        .with_y_label(YLABEL)
+        .with_tick_size(18)
+        .with_label_size(18)
+        .with_title_size(18);
 
     let svg = SvgBackend.render_scene(&render_multiple(plots, layout));
     std::fs::write(format!("{OUT}/confidence_band.svg"), svg).unwrap();
@@ -144,7 +155,10 @@ fn error_bars() {
     let layout = Layout::auto_from_plots(&plots)
         .with_title("Error Bars")
         .with_x_label(XLABEL)
-        .with_y_label(YLABEL);
+        .with_y_label(YLABEL)
+        .with_tick_size(18)
+        .with_label_size(18)
+        .with_title_size(18);
 
     let svg = SvgBackend.render_scene(&render_multiple(plots, layout));
     std::fs::write(format!("{OUT}/error_bars.svg"), svg).unwrap();
@@ -181,7 +195,10 @@ fn markers() {
     let layout = Layout::auto_from_plots(&plots)
         .with_title("Marker Shapes")
         .with_x_label(XLABEL)
-        .with_y_label(YLABEL);
+        .with_y_label(YLABEL)
+        .with_tick_size(18)
+        .with_label_size(18)
+        .with_title_size(18);
 
     let svg = SvgBackend.render_scene(&render_multiple(plots, layout));
     std::fs::write(format!("{OUT}/markers.svg"), svg).unwrap();
@@ -207,8 +224,11 @@ fn bubble() {
     let plots = vec![Plot::Scatter(plot)];
     let layout = Layout::auto_from_plots(&plots)
         .with_title("Bubble Plot")
-        .with_x_label("X")
-        .with_y_label("Y");
+        .with_x_label(XLABEL)
+        .with_y_label(YLABEL)
+        .with_tick_size(18)
+        .with_label_size(18)
+        .with_title_size(18);
 
     let svg = SvgBackend.render_scene(&render_multiple(plots, layout));
     std::fs::write(format!("{OUT}/bubble.svg"), svg).unwrap();
