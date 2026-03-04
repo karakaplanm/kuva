@@ -4,11 +4,10 @@
 <line x1="69.19999999999999" y1="48" x2="69.19999999999999" y2="498" stroke="black" stroke-width="1" />
 <line x1="69.19999999999999" y1="48" x2="669.2" y2="48" stroke="black" stroke-width="1" />
 <line x1="669.2" y1="48" x2="669.2" y2="498" stroke="black" stroke-width="1" />
-<line x1="169.2" y1="48" x2="169.2" y2="498" stroke="#ccc" stroke-width="1" />
-<line x1="269.2" y1="48" x2="269.2" y2="498" stroke="#ccc" stroke-width="1" />
-<line x1="369.2" y1="48" x2="369.2" y2="498" stroke="#ccc" stroke-width="1" />
-<line x1="469.2" y1="48" x2="469.2" y2="498" stroke="#ccc" stroke-width="1" />
-<line x1="569.2" y1="48" x2="569.2" y2="498" stroke="#ccc" stroke-width="1" />
+<line x1="189.2" y1="48" x2="189.2" y2="498" stroke="#ccc" stroke-width="1" />
+<line x1="309.2" y1="48" x2="309.2" y2="498" stroke="#ccc" stroke-width="1" />
+<line x1="429.2" y1="48" x2="429.2" y2="498" stroke="#ccc" stroke-width="1" />
+<line x1="549.2" y1="48" x2="549.2" y2="498" stroke="#ccc" stroke-width="1" />
 <line x1="669.2" y1="48" x2="669.2" y2="498" stroke="#ccc" stroke-width="1" />
 <line x1="69.19999999999999" y1="404.25" x2="669.2" y2="404.25" stroke="#ccc" stroke-width="1" />
 <line x1="69.19999999999999" y1="310.5" x2="669.2" y2="310.5" stroke="#ccc" stroke-width="1" />
@@ -16,18 +15,16 @@
 <line x1="69.19999999999999" y1="123" x2="669.2" y2="123" stroke="#ccc" stroke-width="1" />
 <line x1="69.19999999999999" y1="498" x2="69.19999999999999" y2="503" stroke="black" stroke-width="1" />
 <text x="69.19999999999999" y="521" font-size="18" text-anchor="middle">0</text>
-<line x1="169.2" y1="498" x2="169.2" y2="503" stroke="black" stroke-width="1" />
-<text x="169.2" y="521" font-size="18" text-anchor="middle">1</text>
-<line x1="269.2" y1="498" x2="269.2" y2="503" stroke="black" stroke-width="1" />
-<text x="269.2" y="521" font-size="18" text-anchor="middle">2</text>
-<line x1="369.2" y1="498" x2="369.2" y2="503" stroke="black" stroke-width="1" />
-<text x="369.2" y="521" font-size="18" text-anchor="middle">3</text>
-<line x1="469.2" y1="498" x2="469.2" y2="503" stroke="black" stroke-width="1" />
-<text x="469.2" y="521" font-size="18" text-anchor="middle">4</text>
-<line x1="569.2" y1="498" x2="569.2" y2="503" stroke="black" stroke-width="1" />
-<text x="569.2" y="521" font-size="18" text-anchor="middle">5</text>
+<line x1="189.2" y1="498" x2="189.2" y2="503" stroke="black" stroke-width="1" />
+<text x="189.2" y="521" font-size="18" text-anchor="middle">2.5</text>
+<line x1="309.2" y1="498" x2="309.2" y2="503" stroke="black" stroke-width="1" />
+<text x="309.2" y="521" font-size="18" text-anchor="middle">5</text>
+<line x1="429.2" y1="498" x2="429.2" y2="503" stroke="black" stroke-width="1" />
+<text x="429.2" y="521" font-size="18" text-anchor="middle">7.5</text>
+<line x1="549.2" y1="498" x2="549.2" y2="503" stroke="black" stroke-width="1" />
+<text x="549.2" y="521" font-size="18" text-anchor="middle">10</text>
 <line x1="669.2" y1="498" x2="669.2" y2="503" stroke="black" stroke-width="1" />
-<text x="669.2" y="521" font-size="18" text-anchor="middle">6</text>
+<text x="669.2" y="521" font-size="18" text-anchor="middle">12.5</text>
 <line x1="64.19999999999999" y1="498" x2="69.19999999999999" y2="498" stroke="black" stroke-width="1" />
 <text x="61.19999999999999" y="504.3" font-size="18" text-anchor="end">0</text>
 <line x1="64.19999999999999" y1="404.25" x2="69.19999999999999" y2="404.25" stroke="black" stroke-width="1" />
@@ -41,39 +38,39 @@
 <text x="343.6" y="550" font-size="18" text-anchor="middle">Progress Milestones (m)</text>
 <text x="18" y="279.5" font-size="18" text-anchor="middle" transform="rotate(-90,18,279.5)">Cumulative Growth (m)</text>
 <text x="343.6" y="24" font-size="18" text-anchor="middle">Error Bars</text>
-<circle cx="169.2" cy="423" r="5" fill="steelblue" />
-<line x1="149.2" y1="423" x2="189.2" y2="423" stroke="steelblue" stroke-width="1" />
-<line x1="149.2" y1="418" x2="149.2" y2="428" stroke="steelblue" stroke-width="1" />
-<line x1="189.2" y1="418" x2="189.2" y2="428" stroke="steelblue" stroke-width="1" />
-<line x1="169.2" y1="445.5" x2="169.2" y2="400.5" stroke="steelblue" stroke-width="1" />
-<line x1="164.2" y1="445.5" x2="174.2" y2="445.5" stroke="steelblue" stroke-width="1" />
-<line x1="164.2" y1="400.5" x2="174.2" y2="400.5" stroke="steelblue" stroke-width="1" />
-<circle cx="269.2" cy="329.25" r="5" fill="steelblue" />
-<line x1="254.2" y1="329.25" x2="284.2" y2="329.25" stroke="steelblue" stroke-width="1" />
-<line x1="254.2" y1="324.25" x2="254.2" y2="334.25" stroke="steelblue" stroke-width="1" />
-<line x1="284.2" y1="324.25" x2="284.2" y2="334.25" stroke="steelblue" stroke-width="1" />
-<line x1="269.2" y1="359.25" x2="269.2" y2="299.25" stroke="steelblue" stroke-width="1" />
-<line x1="264.2" y1="359.25" x2="274.2" y2="359.25" stroke="steelblue" stroke-width="1" />
-<line x1="264.2" y1="299.25" x2="274.2" y2="299.25" stroke="steelblue" stroke-width="1" />
-<circle cx="369.2" cy="280.5" r="5" fill="steelblue" />
-<line x1="339.2" y1="280.5" x2="399.19999999999993" y2="280.5" stroke="steelblue" stroke-width="1" />
-<line x1="339.2" y1="275.5" x2="339.2" y2="285.5" stroke="steelblue" stroke-width="1" />
-<line x1="399.19999999999993" y1="275.5" x2="399.19999999999993" y2="285.5" stroke="steelblue" stroke-width="1" />
-<line x1="369.2" y1="295.5" x2="369.2" y2="265.5" stroke="steelblue" stroke-width="1" />
-<line x1="364.2" y1="295.5" x2="374.2" y2="295.5" stroke="steelblue" stroke-width="1" />
-<line x1="364.2" y1="265.5" x2="374.2" y2="265.5" stroke="steelblue" stroke-width="1" />
-<circle cx="469.2" cy="190.50000000000006" r="5" fill="steelblue" />
-<line x1="459.2" y1="190.50000000000006" x2="479.19999999999993" y2="190.50000000000006" stroke="steelblue" stroke-width="1" />
-<line x1="459.2" y1="185.50000000000006" x2="459.2" y2="195.50000000000006" stroke="steelblue" stroke-width="1" />
-<line x1="479.19999999999993" y1="185.50000000000006" x2="479.19999999999993" y2="195.50000000000006" stroke="steelblue" stroke-width="1" />
-<line x1="469.2" y1="224.25" x2="469.2" y2="156.75" stroke="steelblue" stroke-width="1" />
-<line x1="464.2" y1="224.25" x2="474.2" y2="224.25" stroke="steelblue" stroke-width="1" />
-<line x1="464.2" y1="156.75" x2="474.2" y2="156.75" stroke="steelblue" stroke-width="1" />
-<circle cx="569.2" cy="119.25" r="5" fill="steelblue" />
-<line x1="544.2" y1="119.25" x2="594.2" y2="119.25" stroke="steelblue" stroke-width="1" />
-<line x1="544.2" y1="114.25" x2="544.2" y2="124.25" stroke="steelblue" stroke-width="1" />
-<line x1="594.2" y1="114.25" x2="594.2" y2="124.25" stroke="steelblue" stroke-width="1" />
-<line x1="569.2" y1="138.00000000000006" x2="569.2" y2="100.5" stroke="steelblue" stroke-width="1" />
-<line x1="564.2" y1="138.00000000000006" x2="574.2" y2="138.00000000000006" stroke="steelblue" stroke-width="1" />
-<line x1="564.2" y1="100.5" x2="574.2" y2="100.5" stroke="steelblue" stroke-width="1" />
+<circle cx="117.19999999999999" cy="423" r="5" fill="steelblue" />
+<line x1="107.6" y1="423" x2="126.79999999999998" y2="423" stroke="steelblue" stroke-width="1" />
+<line x1="107.6" y1="418" x2="107.6" y2="428" stroke="steelblue" stroke-width="1" />
+<line x1="126.79999999999998" y1="418" x2="126.79999999999998" y2="428" stroke="steelblue" stroke-width="1" />
+<line x1="117.19999999999999" y1="445.5" x2="117.19999999999999" y2="400.5" stroke="steelblue" stroke-width="1" />
+<line x1="112.19999999999999" y1="445.5" x2="122.19999999999999" y2="445.5" stroke="steelblue" stroke-width="1" />
+<line x1="112.19999999999999" y1="400.5" x2="122.19999999999999" y2="400.5" stroke="steelblue" stroke-width="1" />
+<circle cx="165.2" cy="329.25" r="5" fill="steelblue" />
+<line x1="158" y1="329.25" x2="172.39999999999998" y2="329.25" stroke="steelblue" stroke-width="1" />
+<line x1="158" y1="324.25" x2="158" y2="334.25" stroke="steelblue" stroke-width="1" />
+<line x1="172.39999999999998" y1="324.25" x2="172.39999999999998" y2="334.25" stroke="steelblue" stroke-width="1" />
+<line x1="165.2" y1="359.25" x2="165.2" y2="299.25" stroke="steelblue" stroke-width="1" />
+<line x1="160.2" y1="359.25" x2="170.2" y2="359.25" stroke="steelblue" stroke-width="1" />
+<line x1="160.2" y1="299.25" x2="170.2" y2="299.25" stroke="steelblue" stroke-width="1" />
+<circle cx="213.2" cy="280.5" r="5" fill="steelblue" />
+<line x1="198.8" y1="280.5" x2="227.6" y2="280.5" stroke="steelblue" stroke-width="1" />
+<line x1="198.8" y1="275.5" x2="198.8" y2="285.5" stroke="steelblue" stroke-width="1" />
+<line x1="227.6" y1="275.5" x2="227.6" y2="285.5" stroke="steelblue" stroke-width="1" />
+<line x1="213.2" y1="295.5" x2="213.2" y2="265.5" stroke="steelblue" stroke-width="1" />
+<line x1="208.2" y1="295.5" x2="218.2" y2="295.5" stroke="steelblue" stroke-width="1" />
+<line x1="208.2" y1="265.5" x2="218.2" y2="265.5" stroke="steelblue" stroke-width="1" />
+<circle cx="261.2" cy="190.50000000000006" r="5" fill="steelblue" />
+<line x1="256.4" y1="190.50000000000006" x2="266" y2="190.50000000000006" stroke="steelblue" stroke-width="1" />
+<line x1="256.4" y1="185.50000000000006" x2="256.4" y2="195.50000000000006" stroke="steelblue" stroke-width="1" />
+<line x1="266" y1="185.50000000000006" x2="266" y2="195.50000000000006" stroke="steelblue" stroke-width="1" />
+<line x1="261.2" y1="224.25" x2="261.2" y2="156.75" stroke="steelblue" stroke-width="1" />
+<line x1="256.2" y1="224.25" x2="266.2" y2="224.25" stroke="steelblue" stroke-width="1" />
+<line x1="256.2" y1="156.75" x2="266.2" y2="156.75" stroke="steelblue" stroke-width="1" />
+<circle cx="309.2" cy="119.25" r="5" fill="steelblue" />
+<line x1="297.2" y1="119.25" x2="321.2" y2="119.25" stroke="steelblue" stroke-width="1" />
+<line x1="297.2" y1="114.25" x2="297.2" y2="124.25" stroke="steelblue" stroke-width="1" />
+<line x1="321.2" y1="114.25" x2="321.2" y2="124.25" stroke="steelblue" stroke-width="1" />
+<line x1="309.2" y1="138.00000000000006" x2="309.2" y2="100.5" stroke="steelblue" stroke-width="1" />
+<line x1="304.2" y1="138.00000000000006" x2="314.2" y2="138.00000000000006" stroke="steelblue" stroke-width="1" />
+<line x1="304.2" y1="100.5" x2="314.2" y2="100.5" stroke="steelblue" stroke-width="1" />
 </svg>

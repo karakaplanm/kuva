@@ -59,7 +59,8 @@ fn basic() {
         .with_y_label(YLABEL)
         .with_tick_size(18)
         .with_label_size(18)
-        .with_title_size(18);
+        .with_title_size(18)
+        .with_x_range(0.0, 12.0);
 
     let svg = SvgBackend.render_scene(&render_multiple(plots, layout));
     std::fs::write(format!("{OUT}/basic.svg"), svg).unwrap();
@@ -98,7 +99,8 @@ fn trend() {
         .with_tick_size(18)
         .with_label_size(18)
         .with_title_size(18)
-        .with_body_size(16);
+        .with_body_size(16)
+        .with_x_range(0.0, 12.0);
 
     let svg = SvgBackend.render_scene(&render_multiple(plots, layout));
     std::fs::write(format!("{OUT}/trend.svg"), svg).unwrap();
@@ -126,7 +128,8 @@ fn confidence_band() {
         .with_y_label(YLABEL)
         .with_tick_size(18)
         .with_label_size(18)
-        .with_title_size(18);
+        .with_title_size(18)
+        .with_x_range(0.0, 12.0);
 
     let svg = SvgBackend.render_scene(&render_multiple(plots, layout));
     std::fs::write(format!("{OUT}/confidence_band.svg"), svg).unwrap();
@@ -158,7 +161,8 @@ fn error_bars() {
         .with_y_label(YLABEL)
         .with_tick_size(18)
         .with_label_size(18)
-        .with_title_size(18);
+        .with_title_size(18)
+        .with_x_range(0.0, 12.0);
 
     let svg = SvgBackend.render_scene(&render_multiple(plots, layout));
     std::fs::write(format!("{OUT}/error_bars.svg"), svg).unwrap();
@@ -198,7 +202,8 @@ fn markers() {
         .with_y_label(YLABEL)
         .with_tick_size(18)
         .with_label_size(18)
-        .with_title_size(18);
+        .with_title_size(18)
+        .with_x_range(0.0, 12.0);
 
     let svg = SvgBackend.render_scene(&render_multiple(plots, layout));
     std::fs::write(format!("{OUT}/markers.svg"), svg).unwrap();
@@ -228,7 +233,8 @@ fn bubble() {
         .with_y_label(YLABEL)
         .with_tick_size(18)
         .with_label_size(18)
-        .with_title_size(18);
+        .with_title_size(18)
+        .with_x_range(0.0, 12.0);
 
     let svg = SvgBackend.render_scene(&render_multiple(plots, layout));
     std::fs::write(format!("{OUT}/bubble.svg"), svg).unwrap();

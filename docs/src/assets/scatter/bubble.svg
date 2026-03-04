@@ -17,15 +17,15 @@
 <line x1="69.19999999999999" y1="498" x2="69.19999999999999" y2="503" stroke="black" stroke-width="1" />
 <text x="69.19999999999999" y="521" font-size="18" text-anchor="middle">0</text>
 <line x1="189.2" y1="498" x2="189.2" y2="503" stroke="black" stroke-width="1" />
-<text x="189.2" y="521" font-size="18" text-anchor="middle">2</text>
+<text x="189.2" y="521" font-size="18" text-anchor="middle">2.5</text>
 <line x1="309.2" y1="498" x2="309.2" y2="503" stroke="black" stroke-width="1" />
-<text x="309.2" y="521" font-size="18" text-anchor="middle">4</text>
+<text x="309.2" y="521" font-size="18" text-anchor="middle">5</text>
 <line x1="429.2" y1="498" x2="429.2" y2="503" stroke="black" stroke-width="1" />
-<text x="429.2" y="521" font-size="18" text-anchor="middle">6</text>
+<text x="429.2" y="521" font-size="18" text-anchor="middle">7.5</text>
 <line x1="549.2" y1="498" x2="549.2" y2="503" stroke="black" stroke-width="1" />
-<text x="549.2" y="521" font-size="18" text-anchor="middle">8</text>
+<text x="549.2" y="521" font-size="18" text-anchor="middle">10</text>
 <line x1="669.2" y1="498" x2="669.2" y2="503" stroke="black" stroke-width="1" />
-<text x="669.2" y="521" font-size="18" text-anchor="middle">10</text>
+<text x="669.2" y="521" font-size="18" text-anchor="middle">12.5</text>
 <line x1="64.19999999999999" y1="498" x2="69.19999999999999" y2="498" stroke="black" stroke-width="1" />
 <text x="61.19999999999999" y="504.3" font-size="18" text-anchor="end">0</text>
 <line x1="64.19999999999999" y1="408" x2="69.19999999999999" y2="408" stroke="black" stroke-width="1" />
@@ -41,10 +41,10 @@
 <text x="343.6" y="550" font-size="18" text-anchor="middle">Progress Milestones (m)</text>
 <text x="18" y="279.5" font-size="18" text-anchor="middle" transform="rotate(-90,18,279.5)">Cumulative Growth (m)</text>
 <text x="343.6" y="24" font-size="18" text-anchor="middle">Bubble Plot</text>
-<circle cx="129.2" cy="363" r="5" fill="steelblue" />
-<circle cx="219.2" cy="205.5" r="14" fill="steelblue" />
-<circle cx="309.2" cy="318" r="9" fill="steelblue" />
-<circle cx="399.2" cy="138" r="18" fill="steelblue" />
-<circle cx="489.2" cy="250.49999999999997" r="11" fill="steelblue" />
-<circle cx="579.2" cy="93" r="7" fill="steelblue" />
+<circle cx="117.19999999999999" cy="363" r="5" fill="steelblue" />
+<circle cx="189.2" cy="205.5" r="14" fill="steelblue" />
+<circle cx="261.2" cy="318" r="9" fill="steelblue" />
+<circle cx="333.2" cy="138" r="18" fill="steelblue" />
+<circle cx="405.20000000000005" cy="250.49999999999997" r="11" fill="steelblue" />
+<circle cx="477.20000000000005" cy="93" r="7" fill="steelblue" />
 </svg>

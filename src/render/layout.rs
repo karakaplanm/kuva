@@ -599,6 +599,22 @@ impl Layout {
         self
     }
 
+    /// Manually override the X-axis range. Clears `data_x_range` so the
+    /// layout engine strictly respects the manual boundaries.
+    pub fn with_x_range(mut self, min: f64, max: f64) -> Self {
+        self.x_range = (min, max);
+        self.data_x_range = None;
+        self
+    }
+
+    /// Manually override the Y-axis range. Clears `data_y_range` so the
+    /// layout engine strictly respects the manual boundaries.
+    pub fn with_y_range(mut self, min: f64, max: f64) -> Self {
+        self.y_range = (min, max);
+        self.data_y_range = None;
+        self
+    }
+
     pub fn with_ticks(mut self, ticks: usize) -> Self {
         self.ticks = ticks;
         self
