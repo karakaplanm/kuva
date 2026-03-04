@@ -32,8 +32,8 @@
 <text x="57" y="158" font-size="10" text-anchor="end">15</text>
 <line x1="60" y1="42" x2="65" y2="42" stroke="black" stroke-width="1" />
 <text x="57" y="45.5" font-size="10" text-anchor="end">20</text>
-<text x="339.5" y="534" font-size="14" text-anchor="middle">X</text>
-<text x="14" y="270.5" font-size="14" text-anchor="middle" transform="rotate(-90,14,270.5)">Y</text>
+<text x="339.5" y="534" font-size="14" text-anchor="middle">Progress Milestones (m)</text>
+<text x="14" y="270.5" font-size="14" text-anchor="middle" transform="rotate(-90,14,270.5)">Cumulative Growth (m)</text>
 <text x="339.5" y="21" font-size="16" text-anchor="middle">Confidence Band</text>
 <path d="M 115 413.25 L 165 372.75 L 215 332.25 L 265 291.75 L 315 251.25000000000003 L 365 210.75 L 415 170.25 L 465 129.75 L 515 89.25000000000006 L 565 48.75 L 565 102.75 L 515 143.25 L 465 183.75 L 415 224.25 L 365 264.74999999999994 L 315 305.25 L 265 345.75 L 215 386.25 L 165 426.75 L 115 467.25 Z" stroke="none" stroke-width="0" fill="steelblue" fill-opacity="0.2" />
 <circle cx="115" cy="440.25" r="5" fill="steelblue" />

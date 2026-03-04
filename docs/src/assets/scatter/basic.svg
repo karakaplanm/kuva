@@ -38,8 +38,8 @@
 <text x="57" y="135.5" font-size="10" text-anchor="end">8</text>
 <line x1="60" y1="42" x2="65" y2="42" stroke="black" stroke-width="1" />
 <text x="57" y="45.5" font-size="10" text-anchor="end">10</text>
-<text x="339.5" y="534" font-size="14" text-anchor="middle">X</text>
-<text x="14" y="270.5" font-size="14" text-anchor="middle" transform="rotate(-90,14,270.5)">Y</text>
+<text x="339.5" y="534" font-size="14" text-anchor="middle">Progress Milestones (m)</text>
+<text x="14" y="270.5" font-size="14" text-anchor="middle" transform="rotate(-90,14,270.5)">Cumulative Growth (m)</text>
 <text x="339.5" y="21" font-size="16" text-anchor="middle">Scatter Plot</text>
 <circle cx="95" cy="438" r="5" fill="steelblue" />
 <circle cx="149" cy="352.5" r="5" fill="steelblue" />

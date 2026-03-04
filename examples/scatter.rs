@@ -9,13 +9,15 @@
 //!
 //! SVGs are written to `docs/src/assets/scatter/`.
 
-use kuva::plot::scatter::{MarkerShape, ScatterPlot, TrendLine};
 use kuva::backend::svg::SvgBackend;
-use kuva::render::render::render_multiple;
+use kuva::plot::scatter::{MarkerShape, ScatterPlot, TrendLine};
 use kuva::render::layout::Layout;
 use kuva::render::plots::Plot;
+use kuva::render::render::render_multiple;
 
 const OUT: &str = "docs/src/assets/scatter";
+const XLABEL: &str = "Progress Milestones (m)";
+const YLABEL: &str = "Cumulative Growth (m)";
 
 fn main() {
     std::fs::create_dir_all(OUT).expect("could not create docs/src/assets/scatter");
@@ -53,8 +55,8 @@ fn basic() {
     let plots = vec![Plot::Scatter(plot)];
     let layout = Layout::auto_from_plots(&plots)
         .with_title("Scatter Plot")
-        .with_x_label("X")
-        .with_y_label("Y");
+        .with_x_label(XLABEL)
+        .with_y_label(YLABEL);
 
     let svg = SvgBackend.render_scene(&render_multiple(plots, layout));
     std::fs::write(format!("{OUT}/basic.svg"), svg).unwrap();
@@ -87,8 +89,8 @@ fn trend() {
     let plots = vec![Plot::Scatter(plot)];
     let layout = Layout::auto_from_plots(&plots)
         .with_title("Linear Trend Line")
-        .with_x_label("X")
-        .with_y_label("Y");
+        .with_x_label(XLABEL)
+        .with_y_label(YLABEL);
 
     let svg = SvgBackend.render_scene(&render_multiple(plots, layout));
     std::fs::write(format!("{OUT}/trend.svg"), svg).unwrap();
@@ -112,8 +114,8 @@ fn confidence_band() {
     let plots = vec![Plot::Scatter(plot)];
     let layout = Layout::auto_from_plots(&plots)
         .with_title("Confidence Band")
-        .with_x_label("X")
-        .with_y_label("Y");
+        .with_x_label(XLABEL)
+        .with_y_label(YLABEL);
 
     let svg = SvgBackend.render_scene(&render_multiple(plots, layout));
     std::fs::write(format!("{OUT}/confidence_band.svg"), svg).unwrap();
@@ -141,8 +143,8 @@ fn error_bars() {
     let plots = vec![Plot::Scatter(plot)];
     let layout = Layout::auto_from_plots(&plots)
         .with_title("Error Bars")
-        .with_x_label("X")
-        .with_y_label("Y");
+        .with_x_label(XLABEL)
+        .with_y_label(YLABEL);
 
     let svg = SvgBackend.render_scene(&render_multiple(plots, layout));
     std::fs::write(format!("{OUT}/error_bars.svg"), svg).unwrap();
@@ -152,12 +154,12 @@ fn error_bars() {
 fn markers() {
     let y_offsets = [1.0_f64, 2.0, 3.0, 4.0, 5.0, 6.0];
     let shapes = [
-        (MarkerShape::Circle,   "Circle",   "steelblue"),
-        (MarkerShape::Square,   "Square",   "crimson"),
+        (MarkerShape::Circle, "Circle", "steelblue"),
+        (MarkerShape::Square, "Square", "crimson"),
         (MarkerShape::Triangle, "Triangle", "seagreen"),
-        (MarkerShape::Diamond,  "Diamond",  "darkorange"),
-        (MarkerShape::Cross,    "Cross",    "purple"),
-        (MarkerShape::Plus,     "Plus",     "saddlebrown"),
+        (MarkerShape::Diamond, "Diamond", "darkorange"),
+        (MarkerShape::Cross, "Cross", "purple"),
+        (MarkerShape::Plus, "Plus", "saddlebrown"),
     ];
 
     let plots: Vec<Plot> = shapes
@@ -178,8 +180,8 @@ fn markers() {
 
     let layout = Layout::auto_from_plots(&plots)
         .with_title("Marker Shapes")
-        .with_x_label("X")
-        .with_y_label("");
+        .with_x_label(XLABEL)
+        .with_y_label(YLABEL);
 
     let svg = SvgBackend.render_scene(&render_multiple(plots, layout));
     std::fs::write(format!("{OUT}/markers.svg"), svg).unwrap();
