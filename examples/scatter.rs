@@ -60,7 +60,14 @@ fn basic() {
         .with_tick_size(18)
         .with_label_size(18)
         .with_title_size(18)
-        .with_x_range(0.0, 12.0);
+        .with_x_range(0.0, 12.0)
+        .with_y_range(0.0, 25.0)
+        .with_x_ticks(7)
+        .with_y_ticks(6)
+        .with_margin_left(80.0)
+        .with_margin_right(40.0)
+        .with_margin_top(50.0)
+        .with_margin_bottom(70.0);
 
     let svg = SvgBackend.render_scene(&render_multiple(plots, layout));
     std::fs::write(format!("{OUT}/basic.svg"), svg).unwrap();
@@ -100,7 +107,14 @@ fn trend() {
         .with_label_size(18)
         .with_title_size(18)
         .with_body_size(16)
-        .with_x_range(0.0, 12.0);
+        .with_x_range(0.0, 12.0)
+        .with_y_range(0.0, 25.0)
+        .with_x_ticks(7)
+        .with_y_ticks(6)
+        .with_margin_left(80.0)
+        .with_margin_right(40.0)
+        .with_margin_top(50.0)
+        .with_margin_bottom(70.0);
 
     let svg = SvgBackend.render_scene(&render_multiple(plots, layout));
     std::fs::write(format!("{OUT}/trend.svg"), svg).unwrap();
@@ -129,7 +143,14 @@ fn confidence_band() {
         .with_tick_size(18)
         .with_label_size(18)
         .with_title_size(18)
-        .with_x_range(0.0, 12.0);
+        .with_x_range(0.0, 12.0)
+        .with_y_range(0.0, 25.0)
+        .with_x_ticks(7)
+        .with_y_ticks(6)
+        .with_margin_left(80.0)
+        .with_margin_right(40.0)
+        .with_margin_top(50.0)
+        .with_margin_bottom(70.0);
 
     let svg = SvgBackend.render_scene(&render_multiple(plots, layout));
     std::fs::write(format!("{OUT}/confidence_band.svg"), svg).unwrap();
@@ -162,7 +183,14 @@ fn error_bars() {
         .with_tick_size(18)
         .with_label_size(18)
         .with_title_size(18)
-        .with_x_range(0.0, 12.0);
+        .with_x_range(0.0, 12.0)
+        .with_y_range(0.0, 25.0)
+        .with_x_ticks(7)
+        .with_y_ticks(6)
+        .with_margin_left(80.0)
+        .with_margin_right(40.0)
+        .with_margin_top(50.0)
+        .with_margin_bottom(70.0);
 
     let svg = SvgBackend.render_scene(&render_multiple(plots, layout));
     std::fs::write(format!("{OUT}/error_bars.svg"), svg).unwrap();
@@ -203,7 +231,14 @@ fn markers() {
         .with_tick_size(18)
         .with_label_size(18)
         .with_title_size(18)
-        .with_x_range(0.0, 12.0);
+        .with_x_range(0.0, 12.0)
+        .with_y_range(0.0, 25.0)
+        .with_x_ticks(7)
+        .with_y_ticks(6)
+        .with_margin_left(80.0)
+        .with_margin_right(40.0)
+        .with_margin_top(50.0)
+        .with_margin_bottom(70.0);
 
     let svg = SvgBackend.render_scene(&render_multiple(plots, layout));
     std::fs::write(format!("{OUT}/markers.svg"), svg).unwrap();
@@ -234,7 +269,14 @@ fn bubble() {
         .with_tick_size(18)
         .with_label_size(18)
         .with_title_size(18)
-        .with_x_range(0.0, 12.0);
+        .with_x_range(0.0, 12.0)
+        .with_y_range(0.0, 25.0)
+        .with_x_ticks(7)
+        .with_y_ticks(6)
+        .with_margin_left(80.0)
+        .with_margin_right(40.0)
+        .with_margin_top(50.0)
+        .with_margin_bottom(70.0);
 
     let svg = SvgBackend.render_scene(&render_multiple(plots, layout));
     std::fs::write(format!("{OUT}/bubble.svg"), svg).unwrap();

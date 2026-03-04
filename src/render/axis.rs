@@ -424,7 +424,9 @@ pub fn add_labels_and_title(scene: &mut Scene, computed: &ComputedLayout, layout
         if let Some(label) = &layout.x_label {
             scene.add(Primitive::Text {
                 x: computed.width / 2.0,
-                y: computed.height - computed.label_size as f64 * 0.5,
+                y: computed.height - computed.margin_bottom
+                    + computed.tick_size as f64 * 2.0
+                    + computed.label_size as f64,
                 content: label.clone(),
                 size: computed.label_size,
                 anchor: TextAnchor::Middle,
@@ -438,7 +440,7 @@ pub fn add_labels_and_title(scene: &mut Scene, computed: &ComputedLayout, layout
     if !layout.suppress_y_ticks {
         if let Some(label) = &layout.y_label {
             scene.add(Primitive::Text {
-                x: computed.label_size as f64,
+                x: computed.margin_left - computed.label_size as f64 * 2.5,
                 y: computed.height / 2.0,
                 content: label.clone(),
                 size: computed.label_size,

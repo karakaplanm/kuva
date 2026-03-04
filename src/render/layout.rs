@@ -95,6 +95,8 @@ pub struct Layout {
     pub data_x_range: Option<(f64, f64)>,
     pub data_y_range: Option<(f64, f64)>,
     pub ticks: usize,
+    pub x_ticks_override: usize,
+    pub y_ticks_override: usize,
     pub show_grid: bool,
     pub x_label: Option<String>,
     pub y_label: Option<String>,
@@ -149,6 +151,10 @@ pub struct Layout {
     /// `line_height` is quantised to an integer multiple of the cell height so
     /// that every legend entry lands on its own terminal row with no gaps.
     pub term_rows: Option<u32>,
+    pub margin_top_override: Option<f64>,
+    pub margin_bottom_override: Option<f64>,
+    pub margin_left_override: Option<f64>,
+    pub margin_right_override: Option<f64>,
 }
 
 impl Layout {
@@ -161,6 +167,8 @@ impl Layout {
             data_x_range: None,
             data_y_range: None,
             ticks: 5,
+            x_ticks_override: 0,
+            y_ticks_override: 0,
             show_grid: true,
             x_label: None,
             y_label: None,
@@ -200,6 +208,10 @@ impl Layout {
             clamp_y_axis: false,
             x_bin_width: None,
             term_rows: None,
+            margin_top_override: None,
+            margin_bottom_override: None,
+            margin_left_override: None,
+            margin_right_override: None,
         }
     }
 
@@ -620,6 +632,36 @@ impl Layout {
         self
     }
 
+    pub fn with_x_ticks(mut self, ticks: usize) -> Self {
+        self.x_ticks_override = ticks;
+        self
+    }
+
+    pub fn with_y_ticks(mut self, ticks: usize) -> Self {
+        self.y_ticks_override = ticks;
+        self
+    }
+
+    pub fn with_margin_top(mut self, m: f64) -> Self {
+        self.margin_top_override = Some(m);
+        self
+    }
+
+    pub fn with_margin_bottom(mut self, m: f64) -> Self {
+        self.margin_bottom_override = Some(m);
+        self
+    }
+
+    pub fn with_margin_left(mut self, m: f64) -> Self {
+        self.margin_left_override = Some(m);
+        self
+    }
+
+    pub fn with_margin_right(mut self, m: f64) -> Self {
+        self.margin_right_override = Some(m);
+        self
+    }
+
     pub fn with_show_grid(mut self, show: bool) -> Self {
         self.show_grid = show;
         self
@@ -915,6 +957,13 @@ impl ComputedLayout {
         if layout.show_colorbar {
             margin_right += 85.0; // 20px bar + 50px labels + 15px gap
         }
+
+        // Apply manual margin overrides
+        let margin_top = layout.margin_top_override.unwrap_or(margin_top);
+        let margin_bottom = layout.margin_bottom_override.unwrap_or(margin_bottom);
+        let margin_left = layout.margin_left_override.unwrap_or(margin_left);
+        let margin_right = layout.margin_right_override.unwrap_or(margin_right);
+
         let plot_width = 600.0;
         let plot_height = 450.0;
 
@@ -925,12 +974,16 @@ impl ComputedLayout {
             .height
             .unwrap_or(margin_top + plot_height + margin_bottom);
 
-        let x_ticks = if layout.ticks > 0 {
+        let x_ticks = if layout.x_ticks_override > 0 {
+            layout.x_ticks_override
+        } else if layout.ticks > 0 {
             layout.ticks
         } else {
             render_utils::auto_tick_count(width)
         };
-        let y_ticks = if layout.ticks > 0 {
+        let y_ticks = if layout.y_ticks_override > 0 {
+            layout.y_ticks_override
+        } else if layout.ticks > 0 {
             layout.ticks
         } else {
             render_utils::auto_tick_count(height)

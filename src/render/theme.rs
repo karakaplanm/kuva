@@ -27,7 +27,7 @@ impl Theme {
         Self {
             background: "white".into(),
             axis_color: "black".into(),
-            grid_color: "#ccc".into(),
+            grid_color: "#e0e0e0".into(),
             tick_color: "black".into(),
             text_color: "black".into(),
             legend_bg: "white".into(),
