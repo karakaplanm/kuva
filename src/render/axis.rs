@@ -1,11 +1,8 @@
-use crate::render::render::{Scene, Primitive, TextAnchor};
-use crate::render::layout::{Layout, ComputedLayout, TickFormat};
+use crate::render::layout::{ComputedLayout, Layout, TickFormat};
+use crate::render::render::{Primitive, Scene, TextAnchor};
 use crate::render::render_utils;
 
-
-
 pub fn add_axes_and_grid(scene: &mut Scene, computed: &ComputedLayout, layout: &Layout) {
-
     let map_x = |x| computed.map_x(x);
     let map_y = |y| computed.map_y(y);
 
@@ -28,6 +25,28 @@ pub fn add_axes_and_grid(scene: &mut Scene, computed: &ComputedLayout, layout: &
         x1: computed.margin_left,
         y1: computed.margin_top,
         x2: computed.margin_left,
+        y2: computed.height - computed.margin_bottom,
+        stroke: theme.axis_color.clone(),
+        stroke_width: 1.0,
+        stroke_dasharray: None,
+    });
+
+    // Top boundary line
+    scene.add(Primitive::Line {
+        x1: computed.margin_left,
+        y1: computed.margin_top,
+        x2: computed.width - computed.margin_right,
+        y2: computed.margin_top,
+        stroke: theme.axis_color.clone(),
+        stroke_width: 1.0,
+        stroke_dasharray: None,
+    });
+
+    // Right boundary line
+    scene.add(Primitive::Line {
+        x1: computed.width - computed.margin_right,
+        y1: computed.margin_top,
+        x2: computed.width - computed.margin_right,
         y2: computed.height - computed.margin_bottom,
         stroke: theme.axis_color.clone(),
         stroke_width: 1.0,
@@ -57,7 +76,9 @@ pub fn add_axes_and_grid(scene: &mut Scene, computed: &ComputedLayout, layout: &
             for (i, tx) in x_ticks.iter().enumerate() {
                 // Skip first tick on linear axes (it sits on the axis line).
                 // Datetime ticks are calendar-snapped and don't land on the axis edge.
-                if i == 0 && !layout.log_x && layout.x_datetime.is_none() { continue; }
+                if i == 0 && !layout.log_x && layout.x_datetime.is_none() {
+                    continue;
+                }
                 let x = map_x(*tx);
                 scene.add(Primitive::Line {
                     x1: x,
@@ -73,7 +94,9 @@ pub fn add_axes_and_grid(scene: &mut Scene, computed: &ComputedLayout, layout: &
         // Horizontal grid lines (draw when y-axis is numeric)
         if layout.y_categories.is_none() {
             for (i, ty) in y_ticks.iter().enumerate() {
-                if i == 0 && !layout.log_y && layout.y_datetime.is_none() { continue; }
+                if i == 0 && !layout.log_y && layout.y_datetime.is_none() {
+                    continue;
+                }
                 let y = map_y(*ty);
                 scene.add(Primitive::Line {
                     x1: computed.margin_left,
@@ -124,12 +147,14 @@ pub fn add_axes_and_grid(scene: &mut Scene, computed: &ComputedLayout, layout: &
                     let x_pos = computed.map_x(x_val);
                     let (anchor, rotate) = match layout.x_tick_rotate {
                         Some(angle) => (TextAnchor::End, Some(angle)),
-                        None        => (TextAnchor::Middle, None),
+                        None => (TextAnchor::Middle, None),
                     };
 
                     scene.add(Primitive::Text {
                         x: x_pos,
-                        y: computed.height - computed.margin_bottom + 5.0 + computed.tick_size as f64,
+                        y: computed.height - computed.margin_bottom
+                            + 5.0
+                            + computed.tick_size as f64,
                         content: label.clone(),
                         size: computed.tick_size,
                         anchor,
@@ -170,11 +195,13 @@ pub fn add_axes_and_grid(scene: &mut Scene, computed: &ComputedLayout, layout: &
                     };
                     let (anchor, rotate) = match layout.x_tick_rotate {
                         Some(angle) => (TextAnchor::End, Some(angle)),
-                        None        => (TextAnchor::Middle, None),
+                        None => (TextAnchor::Middle, None),
                     };
                     scene.add(Primitive::Text {
                         x,
-                        y: computed.height - computed.margin_bottom + 5.0 + computed.tick_size as f64,
+                        y: computed.height - computed.margin_bottom
+                            + 5.0
+                            + computed.tick_size as f64,
                         content: label,
                         size: computed.tick_size,
                         anchor,
@@ -184,15 +211,14 @@ pub fn add_axes_and_grid(scene: &mut Scene, computed: &ComputedLayout, layout: &
                 }
             }
         }
-    }
-    else if let Some(categories) = &layout.x_categories {
+    } else if let Some(categories) = &layout.x_categories {
         if !layout.suppress_x_ticks {
             for (i, label) in categories.iter().enumerate() {
                 let x_val = i as f64 + 1.0;
                 let x_pos = computed.map_x(x_val);
                 let (anchor, rotate) = match layout.x_tick_rotate {
                     Some(angle) => (TextAnchor::End, Some(angle)),
-                    None        => (TextAnchor::Middle, None),
+                    None => (TextAnchor::Middle, None),
                 };
                 scene.add(Primitive::Text {
                     x: x_pos,
@@ -273,7 +299,7 @@ pub fn add_axes_and_grid(scene: &mut Scene, computed: &ComputedLayout, layout: &
                 };
                 let (anchor, rotate) = match layout.x_tick_rotate {
                     Some(angle) => (TextAnchor::End, Some(angle)),
-                    None        => (TextAnchor::Middle, None),
+                    None => (TextAnchor::Middle, None),
                 };
                 scene.add(Primitive::Text {
                     x,
@@ -323,18 +349,26 @@ pub fn add_axes_and_grid(scene: &mut Scene, computed: &ComputedLayout, layout: &
 }
 
 pub fn add_y2_axis(scene: &mut Scene, computed: &ComputedLayout, layout: &Layout) {
-    let Some((y2_min, y2_max)) = computed.y2_range else { return; };
+    let Some((y2_min, y2_max)) = computed.y2_range else {
+        return;
+    };
     let theme = &computed.theme;
     let axis_x = computed.width - computed.margin_right;
 
     // Right y-axis line
     scene.add(Primitive::Line {
-        x1: axis_x, y1: computed.margin_top,
-        x2: axis_x, y2: computed.height - computed.margin_bottom,
-        stroke: theme.axis_color.clone(), stroke_width: 1.0, stroke_dasharray: None,
+        x1: axis_x,
+        y1: computed.margin_top,
+        x2: axis_x,
+        y2: computed.height - computed.margin_bottom,
+        stroke: theme.axis_color.clone(),
+        stroke_width: 1.0,
+        stroke_dasharray: None,
     });
 
-    if layout.suppress_y2_ticks { return; }
+    if layout.suppress_y2_ticks {
+        return;
+    }
 
     let y2_ticks = if layout.log_y2 {
         render_utils::generate_ticks_log(y2_min, y2_max)
@@ -346,8 +380,13 @@ pub fn add_y2_axis(scene: &mut Scene, computed: &ComputedLayout, layout: &Layout
         let y = computed.map_y2(*ty);
 
         scene.add(Primitive::Line {
-            x1: axis_x, y1: y, x2: axis_x + 5.0, y2: y,
-            stroke: theme.tick_color.clone(), stroke_width: 1.0, stroke_dasharray: None,
+            x1: axis_x,
+            y1: y,
+            x2: axis_x + 5.0,
+            y2: y,
+            stroke: theme.tick_color.clone(),
+            stroke_width: 1.0,
+            stroke_dasharray: None,
         });
 
         let label = if layout.log_y2 && matches!(computed.y2_tick_format, TickFormat::Auto) {
